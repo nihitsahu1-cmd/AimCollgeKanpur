@@ -1,79 +1,95 @@
-import { Link } from "react-router-dom";
-const links = [
-  ["Home", "#hero"],
-  ["About Us", "#about"],
-  ["Courses", "#courses"],
-  ["Admissions", "#admission"],
-  ["Facilities", "#facilities"],
-  ["Academics", "#courses"],
-  ["Gallery", "#gallery"],
-  ["Latest News", "#news"],
-  ["Contact", "#contact"],
-];
+import clinicData from "../data/clinicData";
 
-function Navbar() {
+function Navbar({ isDarkMode, onThemeToggle }) {
   return (
-    <nav className="navbar navbar-expand-xl college-navbar sticky-top">
-
+    <nav className="navbar navbar-expand-lg clinic-navbar sticky-top">
       <div className="container">
 
-        {/* Mobile Menu Button */}
+        {/* Logo */}
+        <a className="navbar-brand fw-bold text-primary" href="#home" aria-label="AIM Clinic home">
+          <i className="bi bi-heart-pulse-fill me-2"></i>
+          AIM CLINIC
+        </a>
+
+        {/* Mobile Button */}
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#collegeNavbar"
-          aria-controls="collegeNavbar"
+          data-bs-target="#navbarMenu"
+          aria-controls="navbarMenu"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <i className="bi bi-list"></i>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navbar Menu */}
+        {/* Menu */}
         <div
           className="collapse navbar-collapse"
-          id="collegeNavbar"
+          id="navbarMenu"
         >
+          <ul className="navbar-nav ms-auto">
 
-          <ul className="navbar-nav me-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="#home">
+                Home
+              </a>
+            </li>
 
-            {links.map(([label, href]) => (
-              <li
-                className="nav-item"
-                key={label}
-              >
-                <a
-                  className="nav-link"
-                  href={href}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
+            <li className="nav-item">
+              <a className="nav-link" href="#about">
+                About
+              </a>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link" href="#services">
+                Services
+              </a>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link" href="#doctors">
+                Doctors
+              </a>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link" href="#appointment">
+                Appointment
+              </a>
+            </li>
+
+            <li className="nav-item">
+              <a className="nav-link" href="#contact">
+                Contact
+              </a>
+            </li>
 
           </ul>
 
-          {/* Login */}
-          <Link className="login-link" to="/Login"
->
-  <i className="bi bi-person-circle me-1"></i>
-  Login
-</Link>
+          <button
+            type="button"
+            className="btn theme-toggle ms-lg-3"
+            onClick={onThemeToggle}
+            title={isDarkMode ? "Switch to day mode" : "Switch to night mode"}
+            aria-label={isDarkMode ? "Switch to day mode" : "Switch to night mode"}
+          >
+            <i className={`bi ${isDarkMode ? "bi-sun-fill" : "bi-moon-stars-fill"}`}></i>
+          </button>
 
           {/* Call Button */}
           <a
-            className="call-btn"
-            href="tel:9506012020"
+            href={`tel:${clinicData.phone}`}
+            className="btn btn-primary ms-lg-2"
           >
             <i className="bi bi-telephone-fill me-2"></i>
             Call Now
           </a>
 
         </div>
-
       </div>
-
     </nav>
   );
 }

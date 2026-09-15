@@ -1,64 +1,25 @@
-import { facilities } from "../data/collegeData";
+import clinicData from "../data/clinicData";
 
 function Facilities() {
   return (
-    <section
-      id="facilities"
-      className="section-padding light-section"
-    >
+    <section id="facilities" className="section-padding tinted-section">
       <div className="container">
-
-        {/* Section Heading */}
-        <div className="text-center section-heading">
-
-          <p className="section-kicker">
-            CAMPUS LIFE
-          </p>
-
-          <h2 className="section-title">
-            Facilities That Support Your Growth
-          </h2>
-
+        <div className="section-heading text-center mb-5">
+          <span className="section-kicker">A COMFORTABLE CARE EXPERIENCE</span>
+          <h2 className="section-title mt-2">Facilities built around you</h2>
+          <p className="muted-text">Thoughtful details that make every visit easier.</p>
         </div>
-
-        {/* Facilities Cards */}
         <div className="row g-4">
-
-          {facilities.map(
-            ([name, description, icon]) => (
-              <div
-                className="col-md-6 col-lg-4"
-                key={name}
-              >
-
-                <div className="facility-card ui-card">
-
-                  {/* Facility Icon */}
-                  <i
-                    className={`bi ${icon}`}
-                  ></i>
-
-                  {/* Facility Details */}
-                  <div>
-
-                    <h3>
-                      {name}
-                    </h3>
-
-                    <p>
-                      {description}
-                    </p>
-
-                  </div>
-
-                </div>
-
+          {clinicData.facilities.map((facility) => (
+            <div className="col-md-6 col-lg-3" key={facility.id}>
+              <div className="facility-card h-100">
+                <div className="facility-icon"><i className={`bi ${facility.icon}`}></i></div>
+                <h3>{facility.title}</h3>
+                <p className="muted-text mb-0">{facility.description}</p>
               </div>
-            )
-          )}
-
+            </div>
+          ))}
         </div>
-
       </div>
     </section>
   );

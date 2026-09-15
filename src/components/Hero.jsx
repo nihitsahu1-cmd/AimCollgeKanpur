@@ -1,145 +1,74 @@
+import clinicData from "../data/clinicData";
+
 function Hero() {
   return (
-    <div
-      id="hero"
-      className="carousel slide hero-carousel"
-      data-bs-ride="carousel"
-    >
+    <section id="home" className="hero-section section-padding">
 
-      {/* Carousel Indicators */}
-      <div className="carousel-indicators">
+      <div className="container">
 
-        <button
-          type="button"
-          data-bs-target="#hero"
-          data-bs-slide-to="0"
-          className="active"
-          aria-label="Slide 1"
-        ></button>
+        <div className="row align-items-center">
 
-        <button
-          type="button"
-          data-bs-target="#hero"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
+          {/* Left Content */}
+          <div className="col-lg-6 fade-in">
 
-        <button
-          type="button"
-          data-bs-target="#hero"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
+            <span className="badge bg-primary mb-3">
+              <i className="bi bi-shield-check me-2"></i>
+              Trusted Healthcare
+            </span>
 
-      </div>
-
-      {/* Carousel Items */}
-      <div className="carousel-inner">
-
-        {/* Slide 1 */}
-        <div className="carousel-item active">
-
-          <img
-            src="/hero1.jpg"
-            className="d-block w-100 hero-image"
-            alt="College campus"
-          />
-
-          <div className="hero-overlay"></div>
-
-          <div className="carousel-caption hero-content">
-
-            <p className="hero-small">
-             AIM GROUP OF INSTITUTION
-            </p>
-
-            <h1>
-              BCA | BBA | Bs.c Nursing | LLB | B.Ed | B.Com  
-              <br />
-
-              <span>
-                Career-Ready Programs
-              </span>
+            <h1 className="display-4 fw-bold">
+              Your Health, <span className="text-primary">Our Priority</span>
             </h1>
 
-            <p>
-              Launch your professional career with our
-              industry-aligned programs. Skilled faculty,
-              modern labs, and practical training to make
-              you job-ready.
+            <p className="lead text-muted mt-3">
+              Compassionate care, experienced doctors and modern medical support,
+              all in one comfortable clinic close to you.
             </p>
 
             <div className="mt-4">
 
-              {/* Courses Button */}
               <a
-                href="#courses"
-                className="btn explore-btn"
+                href="#appointment"
+                className="btn btn-primary btn-lg me-2"
               >
-                Professional Courses
-
-                <i className="bi bi-arrow-right ms-2"></i>
+                <i className="bi bi-calendar-check me-2"></i>
+                Book Appointment
               </a>
 
-              {/* Enquiry Button */}
               <a
-                href="#contact"
-                className="btn apply-btn"
+                href={`tel:${clinicData.phone}`}
+                className="btn btn-outline-primary btn-lg"
               >
-                Enquire Now
-
-                <i className="bi bi-send ms-2"></i>
+                <i className="bi bi-telephone me-2"></i>
+                Call Now
               </a>
 
             </div>
 
           </div>
 
-        </div>
 
-        {/* Slide 2 & 3 */}
-        {[2, 3].map((number) => (
-
-          <div
-            className="carousel-item"
-            key={number}
-          >
-
-            <img
-              src={`/hero${number}.jpg`}
-              className="d-block w-100 hero-image"
-              alt="College activities"
-            />
-
-            <div className="hero-overlay"></div>
+          {/* Right Side */}
+          <div className="col-lg-6 text-center mt-5 mt-lg-0">
+            <div className="hero-image-box slide-up">
+              <img src="/hero1.jpg" alt="Doctor providing a patient consultation" />
+              <div className="hero-trust-card">
+                <i className="bi bi-heart-pulse-fill"></i>
+                <span><strong>Patient-first care</strong><small>Here when you need us</small></span>
+              </div>
+            </div>
+            <div className="emergency-line mt-3">
+              <i className="bi bi-telephone-outbound-fill me-2"></i>
+              Emergency care: <a href={`tel:${clinicData.emergency}`}>{clinicData.emergency}</a>
+            </div>
 
           </div>
 
-        ))}
+        </div>
 
       </div>
 
-      {/* Previous Button */}
-      <button
-        className="carousel-control-prev"
-        type="button"
-        data-bs-target="#hero"
-        data-bs-slide="prev"
-      >
-        <span className="carousel-control-prev-icon"></span>
-      </button>
-
-      {/* Next Button */}
-      <button
-        className="carousel-control-next"
-        type="button"
-        data-bs-target="#hero"
-        data-bs-slide="next"
-      >
-        <span className="carousel-control-next-icon"></span>
-      </button>
-
-    </div>
+    </section>
   );
 }
 
