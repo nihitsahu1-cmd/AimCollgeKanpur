@@ -1,12 +1,18 @@
-function Login() {
+import ThemeToggle from "../components/ThemeToggle";
+
+function Login({ isDarkMode, onToggleTheme }) {
   return (
-    <div className="container py-5">
+    <div className="login-page container py-5">
+
+      <div className="d-flex justify-content-end mb-3">
+        <ThemeToggle isDarkMode={isDarkMode} onToggle={onToggleTheme} />
+      </div>
 
       <div className="row justify-content-center">
 
         <div className="col-md-5">
 
-          <div className="card shadow p-4">
+          <div className="card ui-card login-card shadow p-4">
 
             {/* College Logo */}
             <div className="text-center mb-3">

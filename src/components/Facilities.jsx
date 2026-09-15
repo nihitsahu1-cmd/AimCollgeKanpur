@@ -31,7 +31,7 @@ function Facilities() {
                 key={name}
               >
 
-                <div className="facility-card">
+                <div className="facility-card ui-card">
 
                   {/* Facility Icon */}
                   <i

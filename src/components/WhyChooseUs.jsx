@@ -13,14 +13,14 @@ function WhyChooseUs() {
   return <section className="section-padding light-section">
     <div className="container">
         <div className="text-center section-heading">
-            <p className="section-kicker">THE PSRPG ADVANTAGE</p>
+            <p className="section-kicker">THE AGOI ADVANTAGE</p>
             <h2 className="section-title">Why Choose Us</h2>
             <p className="text-muted">A strong foundation for your academic and professional future.
                 </p>
                 </div>
                 <div className="row g-4">{reasons.map(([title, description, icon]) => 
                     <div className="col-md-6 col-lg-4" key={title}>
-                        <div className="feature-card h-100">
+                        <div className="feature-card ui-card h-100">
                             <div className="feature-icon">
                                 <i className={`bi ${icon}`} />
                                 </div><h3>{title}</h3><p>{description}</p></div>

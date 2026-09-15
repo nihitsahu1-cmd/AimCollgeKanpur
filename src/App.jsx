@@ -36,13 +36,13 @@ function App() {
         {/* Login Page */}
         <Route
           path="/login"
-          element={<Login />}
+          element={<Login isDarkMode={isDarkMode} onToggleTheme={toggleTheme} />}
         />
 
         {/* Other URLs */}
         <Route
           path="*"
-          element={<Home />}
+          element={<Home isDarkMode={isDarkMode} onToggleTheme={toggleTheme} />}
         />
 
       </Routes>

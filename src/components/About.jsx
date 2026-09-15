@@ -22,6 +22,7 @@ function About() {
     >
       <div className="container">
 
+        {/* ================= ABOUT INSTITUTION ================= */}
         <div className="row align-items-center g-5">
 
           {/* About Image */}
@@ -70,8 +71,6 @@ function About() {
               students from nearby rural and urban areas.
             </p>
 
-           
-
             {/* College Features */}
             <div className="row g-3 mt-3">
 
@@ -99,7 +98,6 @@ function About() {
 
             </div>
 
-           
             {/* Contact / Courses Button */}
             <a
               href="#courses"
@@ -109,6 +107,88 @@ function About() {
 
               <i className="bi bi-arrow-right ms-2"></i>
             </a>
+
+          </div>
+
+        </div>
+
+
+        {/* ================= MANAGER'S MESSAGE ================= */}
+        <div className="manager-message mt-5 pt-5">
+
+          <div className="row align-items-center g-4">
+
+            {/* Manager Photo */}
+            <div className="col-lg-4 text-center">
+
+              <div className="manager-image-wrap">
+
+                <img
+                  src="/manager.jpg"
+                  alt="Manager of Dr. Dharmendra Singh B.S Mahavidyalaya"
+                  className="manager-image"
+                />
+
+              </div>
+
+            </div>
+
+
+            {/* Manager Message */}
+            <div className="col-lg-8">
+
+              <p className="section-kicker">
+                MANAGER'S MESSAGE
+              </p>
+
+              <h3 className="section-title">
+                Message from the Manager
+              </h3>
+
+              <div className="manager-quote">
+
+                <i className="bi bi-quote"></i>
+
+                <p>
+                  Dear Students, Parents and Visitors,
+                </p>
+
+                <p>
+                  It is my pleasure to welcome you to
+                  Dr. Dharmendra Singh B.S Mahavidyalaya.
+                  Our institution is committed to providing
+                  quality education in a supportive and
+                  disciplined environment.
+                </p>
+
+                <p>
+                  We believe that education is not only about
+                  academic success but also about developing
+                  confidence, character, skills and responsible
+                  citizens for the future.
+                </p>
+
+                <p className="mb-0">
+                  We look forward to supporting every student
+                  in achieving their academic and career goals.
+                </p>
+
+              </div>
+
+              {/* Manager Name */}
+              <div className="manager-details mt-3">
+
+                <h5 className="mb-1">
+                  Manager Name
+                </h5>
+
+                <p className="text-muted mb-0">
+                  Manager, AIM Group of Institution
+                </p>
+
+              </div>
+
+            </div>
 
           </div>
 

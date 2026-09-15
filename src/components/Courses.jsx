@@ -145,7 +145,7 @@ function Courses() {
               key={course.name}
             >
 
-              <div className="course-card h-100">
+              <div className="course-card ui-card h-100">
 
                 {/* Course Icon */}
                 <div className="course-icon">

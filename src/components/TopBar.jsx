@@ -1,3 +1,5 @@
+import ThemeToggle from "./ThemeToggle";
+
 function TopBar({ isDarkMode, onToggleTheme }) {
   return (
     <div className="top-bar">
@@ -8,16 +10,7 @@ function TopBar({ isDarkMode, onToggleTheme }) {
                 <i className="bi bi-telephone-fill me-1" />
                 9506012020</a><a href="mailto:aimcollege@gmail.com">
                     <i className="bi bi-envelope-fill me-1" />Email Us</a>
-                    <button
-                      className="theme-toggle"
-                      type="button"
-                      onClick={onToggleTheme}
-                      aria-label={`Switch to ${isDarkMode ? "day" : "night"} mode`}
-                      title={`Switch to ${isDarkMode ? "day" : "night"} mode`}
-                    >
-                      <i className={`bi bi-${isDarkMode ? "sun" : "moon-stars"}`} />
-                      <span>{isDarkMode ? "Day mode" : "Night mode"}</span>
-                    </button>
+                    <ThemeToggle isDarkMode={isDarkMode} onToggle={onToggleTheme} />
                     </div>
       </div>
     </div>

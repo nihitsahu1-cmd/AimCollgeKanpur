@@ -3,6 +3,8 @@ import { allCourseNames } from "../data/collegeData";
 
 function AdmissionForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -19,12 +21,59 @@ function AdmissionForm() {
       ...formData,
       [event.target.name]: event.target.value,
     });
+
+    setSubmitted(false);
+    setError("");
   };
 
   // Handle form submit
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitted(true);
+
+    setLoading(true);
+    setSubmitted(false);
+    setError("");
+
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/enquiries",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to send enquiry");
+      }
+
+      setSubmitted(true);
+
+      // Clear form
+      setFormData({
+        fullName: "",
+        mobile: "",
+        email: "",
+        course: "",
+        qualification: "",
+        message: "",
+      });
+
+    } catch (error) {
+      console.error("Enquiry Error:", error);
+
+      setError(
+        "Unable to send enquiry. Please try again."
+      );
+
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -43,8 +92,15 @@ function AdmissionForm() {
       {submitted && (
         <div className="alert alert-success">
           <i className="bi bi-check-circle me-2"></i>
-
           Your enquiry has been submitted successfully.
+        </div>
+      )}
+
+      {/* Error Message */}
+      {error && (
+        <div className="alert alert-danger">
+          <i className="bi bi-exclamation-circle me-2"></i>
+          {error}
         </div>
       )}
 
@@ -173,10 +229,13 @@ function AdmissionForm() {
           <button
             className="btn btn-primary-custom"
             type="submit"
+            disabled={loading}
           >
-            Submit Enquiry
+            {loading ? "Sending..." : "Submit Enquiry"}
 
-            <i className="bi bi-send ms-2"></i>
+            {!loading && (
+              <i className="bi bi-send ms-2"></i>
+            )}
           </button>
         </div>
 
@@ -186,3 +245,4 @@ function AdmissionForm() {
 }
 
 export default AdmissionForm;
+

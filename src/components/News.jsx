@@ -7,9 +7,10 @@ function News() {
         <h2 className="section-title">Latest News & Updates</h2>
         </div>
         <div className="row g-3">{newsItems.map((title) => 
-            <div className="col-md-6 col-lg" key={title}><article className="news-card">
+            <div className="col-md-6 col-lg" key={title}><article className="news-card ui-card">
                 <span className="news-date">2026 <i className="bi bi-arrow-up-right" />
-                </span><h3>{title}</h3><p>Read the latest update from Purshottam Sri Ram P.G. College.</p>
+                </span><h3>{title}</h3><p>Read the latest update from DR. DHARMENDRA SINGH B.S MAHAVIDYALAYA
+</p>
                 <a href="#contact">Read more <i className="bi bi-arrow-right" /></a></article></div>)}
                 </div>
                 </div>
