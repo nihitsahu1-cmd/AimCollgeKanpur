@@ -152,6 +152,9 @@ body.dark-mode {
   --border-color: #334556;
   --primary-color: #8bb9e6;
   --shadow-color: rgba(0, 0, 0, 0.3);
+  h1,h2,h3,h4,h5,h6,p,span,strong,label,small,li,a {
+  color: var(--text-color);
+}
 }
 
 body,
